@@ -1,0 +1,75 @@
+TreeSearch(T, k)
+x = root[T]
+if x == Null or k = key[x] then return x;
+if k < key[x] then TreeSearch(left[x], k)
+else TreeSearch(right[x], k)
+
+IterativeTreeSearch(T, k)
+x = root[T]
+while x != Null and k != key[x] do
+	if k < key[x] then x = left[x]
+	else x = right[x]
+return x
+
+TreeMinimun(T)
+x = root[T]
+while left[x] != Null do
+	x = left[x]
+return x
+
+TreeMaximum(T)
+x = root[T]
+while right[x] != Null do
+	x = right[x]
+return x
+
+TreeSuccessort(T, x)
+if right[x] != Null then 
+	return TreeMinimun(right[x])
+y = parent[x]
+while y != Null and x == right[y] do
+	x = y
+	y = parent[y]
+return y
+
+TreeSearchInexact(T, k)
+y = Null
+x = root[T]
+while x != Null and k != key[x] do
+	y = x
+	if k < key[x] then x = left[x]
+	else x = right[x]
+if x != Null 
+y = x
+return y
+
+TreeInsert(T, z)
+y = TreeSearchInexact(T, key[z])
+parent[z] = y
+if y == Null 
+	then root[T] = z
+else if key[z] < key[y] then left[y] = z
+else right[y] = z
+
+TreeDelete(T, z)
+if left[z] == Null or right[z] == Null
+	y = z
+else 
+	y = TreeSuccessort(z)
+if left[y] != Null then 
+	x = left[y]
+else x = right[y]
+if x != Null then 
+	parent[x] = parent[y]
+if parent[y] == Null
+	root[T] = x
+else if y == left[parent[y]] then
+	left[parent[y]] = x
+else right[parent[y]] = x
+if y != z then 
+	key[z] = key[y]
+return y
+	
+	
+
+	
