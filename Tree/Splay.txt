@@ -1,0 +1,72 @@
+//splay
+
+Splay(T, k){
+	n = TreeSearchInexact(T, k)
+	while (n != Null && n->parent != Null){
+		f = n->parent;
+		g = f->parent;
+		if g == Null {
+			if n->left(f) rotateright(T,f)
+			else rotateleft(T, f)
+		}else{
+			if (f == left(g)){
+				if (n->left(f)) {
+					rotateright(g);
+					rotateright(f);
+				}else{
+					rotateleft(f);
+					rotateright(g);
+				}
+			} else{
+				if (n->right(f)) {
+					rotateleft(g);
+					rotateleft(f);
+				}else{
+					rotateright(f);
+					rotateleft(g);
+				}
+			}
+		}
+	}
+	
+SplayInsert(T, x){
+	if (root(T) == Null) {
+		root(T) = x;
+		return x;
+	}
+	Splay(T, key[x])
+	if (key[root(T)] < key[x]){
+		left(x) = root(T);
+		right(x) = right(root(T));
+		if (right(x) != Null) parent(right(x)) = x
+	}else{
+		right(x) = root(T);
+		left(x) = left(root(T));
+		if (left(x) != Null) parent(left(x)) = x
+	}
+	parent(root(T)) = x;
+	root(T) = x;
+}
+
+Concat(T1, T2){
+	if(root(T1) == Null) return T2;
+	if(root(T2) == Null) return T1;
+	y = TreeMaximum(T1);
+	Splay(T1, key[y])
+	right(root(T1)) = root(T2);
+	parent(root(T2)) = root(T1);
+	return T1;
+}
+
+SplayDelete(T, k){
+	Splay(T, k);
+	if (root(T) == NULL || key[root(T)] != k) return Null;
+	x = root(T);
+	root(T) = Concat(left(T), right(T));
+	return x;
+}
+
+	
+
+
+			
