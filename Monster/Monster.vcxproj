@@ -19,9 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FlyMonster.h" />
     <ClInclude Include="Monster.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FlyMonster.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Monster.cpp" />
   </ItemGroup>

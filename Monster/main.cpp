@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Monster.h"
+#include "FlyMonster.h"
 
 using namespace std;
 
@@ -64,4 +65,7 @@ int main()
     spider.applyDamage(goblin);
     cout << "attack on goblin " << goblin.getHealth() << endl;
 
+    // дочерний класс
+    FlyMonster fly("Dragon", 1, 2, 3, 4);
+    cout << fly.getFlySpeed() << endl;
 }

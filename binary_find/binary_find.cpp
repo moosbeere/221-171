@@ -21,7 +21,7 @@ int main()
     //std::cout << "Hello World!\n";
     int array[] = { 1,3,5,7,9 };
     int leng = sizeof(array) / sizeof(array[0]);
-    std::cout << binary_found(array, leng, -6);
+    std::cout << binary_found(array, leng, -7);
     
 }
 
