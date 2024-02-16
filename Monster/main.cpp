@@ -19,7 +19,27 @@ int main()
     // 2й вариант
     Monster m = Monster("Goblin", 2, 3, 5);
     // получение значений свойств с помощью геттеров
-    cout <<  m.getName() << m.getDamage() << m.getHealth() << "\n";
+    //cout <<  m.getName() << m.getDamage() << m.getHealth() << "\n";
+    //m.print();
+
+    // дочерний класс
+    FlyMonster fly = FlyMonster("Dragon", 1, 2, 3, 4);
+    //cout << fly.getFlySpeed() << endl;
+    //fly.fly();
+    //fly.print();
+
+    Monster ms[] = { Monster(), FlyMonster(), FlyMonster() };
+    for (Monster monsters : ms) {
+        monsters.print(); 
+    }
+    /*
+    Monster* ms[] = { new Monster(), new FlyMonster(), new FlyMonster() };
+    for (Monster*  monsters : ms) {
+        monsters->print();
+    }
+
+    /*
+
 
     //динамическое создание объекта и его удаление
     Monster* g = new Monster("Dragon", 6, 7, 60);
@@ -65,7 +85,6 @@ int main()
     spider.applyDamage(goblin);
     cout << "attack on goblin " << goblin.getHealth() << endl;
 
-    // дочерний класс
-    FlyMonster fly("Dragon", 1, 2, 3, 4);
-    cout << fly.getFlySpeed() << endl;
+    */
+    
 }

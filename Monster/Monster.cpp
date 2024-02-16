@@ -1,11 +1,11 @@
 #include "Monster.h"
 
-/* 1й вариант конструктора
+// 1й вариант конструктора
 Monster::Monster() {
 	name = "Monster";
 	health = 1;
 	damage = 1;
-}*/
+}
 
 // 2й вариант конструктора
 Monster::Monster(string name, float health, float damage, float maxHealth) {
@@ -72,6 +72,13 @@ void Monster::applyDamage(Monster& m)
 void Monster::recovery()
 {
 	this->health = this->maxHealth;
+}
+void Monster::print()
+{
+	cout << "Name " << this->name << endl;
+	cout << "Health " << this->health << endl;
+	cout << "maxHealth " << this->maxHealth << endl;
+	cout << "Damage " << this->damage << endl;
 }
 
 Monster::~Monster()
