@@ -2,11 +2,46 @@
 //
 
 #include <iostream>
+#include <vector>
+using namespace std;
+
+int findMin(vector<int> arr, int index);
+vector<int> selectionSort(vector<int> arr);
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    vector<int> resArr = selectionSort({ 2,4,1,7,43,2,5 });
+    for (int arr :  resArr) {
+        cout << arr << ", ";
+    }
 }
+
+int findMin(vector<int> arr, int index) {
+    int min = arr[index];
+    int min_index = index;
+    for (int i = index+1; i < arr.size(); i++) {
+        if (min > arr[i]) {
+            int temp = min;
+            min = arr[i];
+            arr[i] = temp;
+            min_index = i;
+        }
+    }
+    return min_index;
+}
+
+vector<int> selectionSort(vector<int> arr) {
+    for (int i = 0; i < arr.size(); i++) {
+        int min_index = findMin(arr, i);
+        int temp = arr[i];
+        arr[i] = arr[min_index];
+        arr[min_index] = temp;
+    }
+    return arr;
+}
+
+
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
