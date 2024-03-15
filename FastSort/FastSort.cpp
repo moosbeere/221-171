@@ -12,7 +12,7 @@ int main()
 	int arr[] = { 3,2,5,6,7,1,3,6 };
 	sort(arr, 0, size(arr)-1);
 	for (int elem : arr) {
-		cout << elem << ', ';//ошибка
+		cout << elem << ", ";
 	}
 }
 
